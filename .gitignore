@@ -1,10 +1,18 @@
 # Environment variables
 .env
+.env.local
+
+# Node modules & build artifacts
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
 
 # Python Bytecode & Cache
 __pycache__/
 *.py[cod]
 *$py.class
+backend/app/__pycache__/
 
 # IDE & Editor files
 .vscode/
