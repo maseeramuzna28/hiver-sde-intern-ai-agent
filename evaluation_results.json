@@ -1,0 +1,52 @@
+{
+  "dataset_size": 200,
+  "comparative_benchmark": {
+    "Baseline 1: Trivial (Majority Class)": {
+      "model_name": "Baseline 1: Trivial (Majority Class)",
+      "intent_accuracy": 0.165,
+      "macro_precision": 0.0275,
+      "macro_recall": 0.1667,
+      "macro_f1": 0.0472,
+      "weighted_f1": 0.0467,
+      "escalation_accuracy": 0.75,
+      "escalation_precision": 0.0,
+      "escalation_recall": 0.0,
+      "escalation_f1": 0.0,
+      "avg_reply_quality_score": 4.0
+    },
+    "Baseline 2: Simple (TF-IDF + Rules)": {
+      "model_name": "Baseline 2: Simple (TF-IDF + Rules)",
+      "intent_accuracy": 0.64,
+      "macro_precision": 0.7274,
+      "macro_recall": 0.6398,
+      "macro_f1": 0.6425,
+      "weighted_f1": 0.6421,
+      "escalation_accuracy": 0.775,
+      "escalation_precision": 0.8571,
+      "escalation_recall": 0.12,
+      "escalation_f1": 0.2105,
+      "avg_reply_quality_score": 4.75
+    },
+    "Main Model: Claude AI Support Agent": {
+      "model_name": "Main Model: Claude AI Support Agent",
+      "intent_accuracy": 0.615,
+      "macro_precision": 0.7075,
+      "macro_recall": 0.6147,
+      "macro_f1": 0.601,
+      "weighted_f1": 0.6009,
+      "escalation_accuracy": 0.68,
+      "escalation_precision": 0.4079,
+      "escalation_recall": 0.62,
+      "escalation_f1": 0.4921,
+      "avg_reply_quality_score": 4.86
+    }
+  },
+  "judge_human_alignment_proof": {
+    "sample_size": 30,
+    "exact_agreement_pct": 86.67,
+    "adjacent_agreement_pct": 100.0,
+    "cohens_kappa": 0.791,
+    "human_mean": 4.1,
+    "judge_mean": 4.23
+  }
+}

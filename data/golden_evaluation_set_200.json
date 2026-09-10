@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "text": "@AmazonHelp Where is my order #111-2223334-4455667? It said out for delivery 2 days ago.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 2,
+    "text": "@AmazonHelp My package tracking hasn't updated since Monday. Carrier is UPS. Please help!",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 3,
+    "text": "@AmazonHelp Delivered status shown on app but package is not on my porch or mailbox.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 4,
+    "text": "@AmazonHelp Can I change the shipping address for order #402-9988776 before it ships?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 5,
+    "text": "@AmazonHelp Driver marked package as delivered to resident but nobody was home. Where is it?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 6,
+    "text": "@AmazonHelp Estimated delivery was 10 AM, now it's 8 PM. Is my package coming today?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 7,
+    "text": "@AmazonHelp Order #102-3948571 was supposed to be 1-day Prime delivery. Why is it 4 days late?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 8,
+    "text": "@AmazonHelp Tracking says 'Incorrect Address'. How do I update my delivery instructions?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 9,
+    "text": "@AmazonHelp Is there any way to expedite shipping for an item I ordered an hour ago?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 10,
+    "text": "@AmazonHelp Package was left in the heavy rain and shipping box is soaked. Tracking #992837.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 11,
+    "text": "@AmazonHelp Can you tell me which carrier is delivering order #701-2837491?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 12,
+    "text": "@AmazonHelp Item shipped via USPS but tracking link is not working on the site.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 13,
+    "text": "@AmazonHelp I paid extra for Sunday delivery and it did not arrive. Order #113-445566-77",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 14,
+    "text": "@AmazonHelp Driver gave package to neighbor without permission. Can you track who accepted it?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 15,
+    "text": "@AmazonHelp Order status says 'Dispatched' for 5 days. Has it left the warehouse?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 16,
+    "text": "@AmazonHelp My delivery driver left the package on the sidewalk near a busy street.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 17,
+    "text": "@AmazonHelp Where is my package? No update on app for 48 hours.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 18,
+    "text": "@AmazonHelp Why was my order split into 3 separate deliveries?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 19,
+    "text": "@AmazonHelp Can I request delivery to a Locker instead of my home for order #554-112233?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 20,
+    "text": "@AmazonHelp My package is delayed due to weather. How long will it take now?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 21,
+    "text": "@AmazonHelp Order #998-123456-789 says delivered to garage but garage was locked.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 22,
+    "text": "@AmazonHelp Tracking number 1Z9999999999999999 is invalid on carrier website.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 23,
+    "text": "@AmazonHelp I need my medical supplies order #112-998877 delivered urgently today!",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 24,
+    "text": "@AmazonHelp Shipment status says returned to sender due to damaged outer packaging.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 25,
+    "text": "@AmazonHelp Will my order arrive before 5 PM today in New York?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 26,
+    "text": "@AmazonHelp Delivery van passed by my house without stopping even though app said next stop.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 27,
+    "text": "@AmazonHelp How do I add access code for my apartment building gate for the driver?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 28,
+    "text": "@AmazonHelp Order #114-001122 shows delivered but picture attached in app is someone else's porch!",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 29,
+    "text": "@AmazonHelp Can I pick up my parcel directly from the local carrier sorting facility?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 30,
+    "text": "@AmazonHelp Is it possible to reschedule delivery date to next Monday?",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 31,
+    "text": "@AmazonHelp Package tracking shows 'Held at Customs' for international shipping.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 32,
+    "text": "@AmazonHelp Driver marked 'Customer unavailable' but I was sitting on my front porch all day!",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 33,
+    "text": "@AmazonHelp Where is my package #405-998877? Tracking link gives 404 error page.",
+    "ground_truth_intent": "ORDER_STATUS_DELIVERY",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 34,
+    "text": "@AmazonHelp How do I return a dress that doesn't fit? Order #112-445566",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 35,
+    "text": "@AmazonHelp I returned my item 7 days ago via Kohl's dropoff. When will my refund hit my account?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 36,
+    "text": "@AmazonHelp Can I get a replacement instead of a refund for order #403-112233?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 37,
+    "text": "@AmazonHelp Return policy says 30 days. It has been 32 days, can I still get store credit?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 38,
+    "text": "@AmazonHelp My return QR code expired. How do I generate a new return label?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 39,
+    "text": "@AmazonHelp I dropped off 2 items in 1 return box. Only 1 item shows refunded.",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 40,
+    "text": "@AmazonHelp When does the 14-day refund processing window start after UPS pickup?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 41,
+    "text": "@AmazonHelp Is return shipping free for Prime members on clothing items?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 42,
+    "text": "@AmazonHelp How do I exchange a medium shirt for a large size?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 43,
+    "text": "@AmazonHelp I was refunded to gift card balance but I wanted original credit card refund.",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 44,
+    "text": "@AmazonHelp Can I return an opened electronic item if it's missing original plastic wrap?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 45,
+    "text": "@AmazonHelp Return status shows processed but money is not in my bank account yet.",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 46,
+    "text": "@AmazonHelp I returned a defective blender. Will I get a full refund including shipping fees?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 47,
+    "text": "@AmazonHelp Where do I find my return mailing authorization slip?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 48,
+    "text": "@AmazonHelp UPS driver never showed up to pick up my return parcel.",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 49,
+    "text": "@AmazonHelp I want to cancel a return request I submitted by mistake yesterday.",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 50,
+    "text": "@AmazonHelp Is it possible to return an item bought from a third-party seller?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 51,
+    "text": "@AmazonHelp Refund amount is $5 short. Why was a restocking fee deducted?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 52,
+    "text": "@AmazonHelp Can I return an item at Whole Foods without a box or label?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 53,
+    "text": "@AmazonHelp I returned my product 2 weeks ago and still no refund. Order #105-887766.",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 54,
+    "text": "@AmazonHelp How long does it take for a credit card refund to reflect on my statement?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 55,
+    "text": "@AmazonHelp Do I need to return all accessories that came in the original box?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 56,
+    "text": "@AmazonHelp I received a partial refund for my returned book. Why wasn't it full?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 57,
+    "text": "@AmazonHelp Can I get cash refund at Amazon Fresh store for an online return?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 58,
+    "text": "@AmazonHelp My account shows refund issued on Sept 2nd but my bank sees nothing.",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 59,
+    "text": "@AmazonHelp Item arrived damaged, do I still need to ship it back to get a refund?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 60,
+    "text": "@AmazonHelp Can I return a gift without the buyer knowing I returned it?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 61,
+    "text": "@AmazonHelp How do I return a bulky furniture item that doesn't fit in my car?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 62,
+    "text": "@AmazonHelp I dropped off return at UPS drop box without scanning label. Will it be processed?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 63,
+    "text": "@AmazonHelp Why is my return taking longer to process than my previous order?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 64,
+    "text": "@AmazonHelp Returned order #111-998877 10 days ago. Support chat promised refund in 48h.",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 65,
+    "text": "@AmazonHelp What happens if my return package is lost by UPS in transit?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 66,
+    "text": "@AmazonHelp Can I return hazardous materials like lithium batteries by mail?",
+    "ground_truth_intent": "RETURNS_REFUNDS",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 67,
+    "text": "@AmazonHelp My laptop screen arrived completely shattered! Box was damaged. Order #114-998877",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 68,
+    "text": "@AmazonHelp The headphones I received only play audio in the left ear. Defective out of box.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 69,
+    "text": "@AmazonHelp You sent me a size 8 shoe when I ordered size 10! Order #402-334455",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 70,
+    "text": "@AmazonHelp Opened package and the bottle of detergent leaked all over the other items!",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 71,
+    "text": "@AmazonHelp The coffee maker I bought stopped heating water after 2 days of use.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 72,
+    "text": "@AmazonHelp My parcel was missing 2 out of the 4 battery packs ordered.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 73,
+    "text": "@AmazonHelp The smartphone box was empty! Seal was broken and no phone inside!",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 74,
+    "text": "@AmazonHelp Received a completely different item: ordered a keyboard, got a dog toy.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 75,
+    "text": "@AmazonHelp The ceramic mug arrived cracked into pieces. Unsafe to touch.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 76,
+    "text": "@AmazonHelp Item missing essential parts listed on the manual. Cannot assemble desk.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 77,
+    "text": "@AmazonHelp The battery charger melted while plugged in! Potential fire hazard!",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 78,
+    "text": "@AmazonHelp Expiration date on the food item delivered today was 3 months ago!",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 79,
+    "text": "@AmazonHelp The power bank expanded and swollen! Looks dangerous to use.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 80,
+    "text": "@AmazonHelp Sent refurbished item when I paid full price for brand new condition.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 81,
+    "text": "@AmazonHelp Hard drive makes clicking sound and fails to connect to PC.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 82,
+    "text": "@AmazonHelp Order #113-556677 arrived without the power cord included.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 83,
+    "text": "@AmazonHelp Product user manual is in a foreign language with no English instructions.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 84,
+    "text": "@AmazonHelp The zipper on the jacket broke on first try. Poor quality.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 85,
+    "text": "@AmazonHelp Garment has a terrible chemical odor even after washing.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 86,
+    "text": "@AmazonHelp Supposed to be a pack of 12 sodas, only received 6 cans in damaged carton.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 87,
+    "text": "@AmazonHelp Watch glass has deep scratches right out of the plastic seal.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 88,
+    "text": "@AmazonHelp The toy arrived with sharp exposed wire inside. Dangerous for kids!",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 89,
+    "text": "@AmazonHelp Smart light bulb won't connect to Alexa or Wi-Fi.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 90,
+    "text": "@AmazonHelp Package box crushed like someone stepped on it. Contents smashed.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 91,
+    "text": "@AmazonHelp Tool set came with missing screwdriver bits.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 92,
+    "text": "@AmazonHelp Electric kettle sparked when plugged in and blew my home circuit breaker!",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 93,
+    "text": "@AmazonHelp Received counterfeit perfume that smells like alcohol. Not genuine product!",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 94,
+    "text": "@AmazonHelp Screen protector was cracked inside its sealed protective case.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 95,
+    "text": "@AmazonHelp Bicycle arrived missing front wheel and assembly hardware.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 96,
+    "text": "@AmazonHelp Food protein powder tub was unsealed and powder spilled inside box.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 97,
+    "text": "@AmazonHelp Wireless mouse sensor skips constantly and disconnects every 5 seconds.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 98,
+    "text": "@AmazonHelp Child car seat lock mechanism is jammed and won't buckle safely!",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 99,
+    "text": "@AmazonHelp Memory card shows 32GB capacity when product description said 256GB.",
+    "ground_truth_intent": "PRODUCT_ISSUE_DEFECT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 100,
+    "text": "@AmazonHelp Cannot log into my Amazon account. Password reset email is not coming through.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 101,
+    "text": "@AmazonHelp How do I cancel my Amazon Prime membership before auto-renewing?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 102,
+    "text": "@AmazonHelp Prime Video displays Error Code 5001 on my LG TV. How to fix?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 103,
+    "text": "@AmazonHelp My Kindle paperwhite is stuck on tree screen and won't restart.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 104,
+    "text": "@AmazonHelp I paid for Prime but my orders are still showing standard shipping fees.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 105,
+    "text": "@AmazonHelp My Amazon account was locked due to suspicious activity. Need access back!",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 106,
+    "text": "@AmazonHelp Someone changed the email address on my Amazon account without my permission!",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 107,
+    "text": "@AmazonHelp How do I transfer my Kindle library to a new Amazon account?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 108,
+    "text": "@AmazonHelp Prime Video subscription was charged but movies still ask for rental fee.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 109,
+    "text": "@AmazonHelp Two-factor authentication SMS codes are not reaching my mobile phone.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 110,
+    "text": "@AmazonHelp How do I remove a credit card from my saved Amazon payment methods?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 111,
+    "text": "@AmazonHelp Amazon Music app keeps crashing on iOS 18.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 112,
+    "text": "@AmazonHelp Can I share Prime benefits with my family members in Household?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 113,
+    "text": "@AmazonHelp My Amazon Luna controller disconnects during gameplay.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 114,
+    "text": "@AmazonHelp How do I update my phone number associated with my account?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 115,
+    "text": "@AmazonHelp Prime student verification failed even though I uploaded my university ID.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 116,
+    "text": "@AmazonHelp Audible credit did not show up after monthly billing.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 117,
+    "text": "@AmazonHelp How do I turn off 1-Click ordering on desktop browser?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 118,
+    "text": "@AmazonHelp My Fire TV Stick keeps rebooting in a boot loop.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 119,
+    "text": "@AmazonHelp Account compromised! Someone placed 5 orders on my account in 10 minutes!",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 120,
+    "text": "@AmazonHelp How do I download tax invoice for my Prime digital subscription?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 121,
+    "text": "@AmazonHelp Why is Prime Video content restricted in my current country travel?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 122,
+    "text": "@AmazonHelp Unable to unlink Twitch account from Prime Gaming.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 123,
+    "text": "@AmazonHelp My Amazon Photos cloud storage says full when I only used 2GB.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 124,
+    "text": "@AmazonHelp How to change default address in my account settings?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 125,
+    "text": "@AmazonHelp Cannot rental HD movie on Prime Video, error code 7031.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 126,
+    "text": "@AmazonHelp How to merge two separate Amazon accounts owned by same person?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 127,
+    "text": "@AmazonHelp Fire Tablet child profile PIN forgotten. How to reset?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 128,
+    "text": "@AmazonHelp Prime Reading books are not opening on desktop Cloud Reader.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 129,
+    "text": "@AmazonHelp Is Amazon Prime Gaming free loot still included in monthly subscription?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 130,
+    "text": "@AmazonHelp My account was suspended for reviewing products! I demand explanation!",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 131,
+    "text": "@AmazonHelp How do I update payment card for Prime Video recurring billing?",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 132,
+    "text": "@AmazonHelp Alexa app says device offline even though Echo Dot is connected to Wi-Fi.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 133,
+    "text": "@AmazonHelp Kindle Unlimited subscription renewed automatically after trial ended.",
+    "ground_truth_intent": "ACCOUNT_DIGITAL_PRIME",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 134,
+    "text": "@AmazonHelp I was charged $14.99 twice on my bank statement for Prime this month!",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 135,
+    "text": "@AmazonHelp There is a mysterious charge of $89.99 from Amazon Digital on my card.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 136,
+    "text": "@AmazonHelp My promo code SAVE15 failed at checkout saying code expired.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 137,
+    "text": "@AmazonHelp Why was my credit card declined when balance and info are correct?",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 138,
+    "text": "@AmazonHelp I applied a $50 gift card but my credit card was still charged full amount.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 139,
+    "text": "@AmazonHelp Fraud alert: my credit card was charged for orders I never made!",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 140,
+    "text": "@AmazonHelp Will take legal action if double charge of $350 is not refunded immediately!",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 141,
+    "text": "@AmazonHelp How do I get a formal VAT invoice for my business account purchase?",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 142,
+    "text": "@AmazonHelp My payment went through but order status says 'Payment Pending'.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 143,
+    "text": "@AmazonHelp Gift card code purchased at supermarket shows already redeemed by another account.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 144,
+    "text": "@AmazonHelp Why did the price in my cart jump from $25 to $40 right before clicking place order?",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 145,
+    "text": "@AmazonHelp Charged for item that was cancelled 3 days ago before shipping.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 146,
+    "text": "@AmazonHelp Bank statement shows charge from Amazon Pay that I didn't authorize.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 147,
+    "text": "@AmazonHelp Promo discount was not applied to my Subscribe & Save delivery.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 148,
+    "text": "@AmazonHelp My credit card was charged twice for order #112-990011.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 149,
+    "text": "@AmazonHelp How do I change payment method for an order already placed?",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 150,
+    "text": "@AmazonHelp I have been billed monthly for a channel subscription I never signed up for.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 151,
+    "text": "@AmazonHelp Currency conversion fee was added to my checkout without disclosure.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 152,
+    "text": "@AmazonHelp Where can I see detailed payment receipt for my past purchases?",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 153,
+    "text": "@AmazonHelp My balance shows -$12.50. Why is my gift card balance negative?",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 154,
+    "text": "@AmazonHelp Payment authorization failed repeatedly with error code ERR_PAY_01.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 155,
+    "text": "@AmazonHelp I demand a full refund and compensation for unauthorized billing!",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 156,
+    "text": "@AmazonHelp Why is Amazon holding $200 pre-authorization on my debit card for a week?",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 157,
+    "text": "@AmazonHelp Gift card claimed success but balance is still 0. Order #401-112233.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 158,
+    "text": "@AmazonHelp Automatic reload charged my card $100 when threshold was reached.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 159,
+    "text": "@AmazonHelp Double charge of $120.45 on my card statement from Amazon EU.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 160,
+    "text": "@AmazonHelp Payment processor rejected my international Visa debit card.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 161,
+    "text": "@AmazonHelp Charged shipping fee even though item marked FREE Prime delivery at checkout.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 162,
+    "text": "@AmazonHelp Disputing charge with bank because Amazon support refused to refund unauthorized order.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 163,
+    "text": "@AmazonHelp How long does it take for pending charge hold to fall off my checking account?",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 164,
+    "text": "@AmazonHelp Gift card balance disappeared after placing order that was later cancelled.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 165,
+    "text": "@AmazonHelp My bank alerted me of suspicious transactions originating from Amazon Marketplace.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 166,
+    "text": "@AmazonHelp Invoice requested for tax filing does not show tax registration number.",
+    "ground_truth_intent": "PAYMENT_BILLING",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 167,
+    "text": "@AmazonHelp Your delivery driver threw my box over the gate and broke my porch lights!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 168,
+    "text": "@AmazonHelp Big shoutout to support agent David for resolving my issue in seconds! Great job.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 169,
+    "text": "@AmazonHelp Customer service phone wait time is over 1 hour. Horrible customer service!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 170,
+    "text": "@AmazonHelp Why is search filter on your website so terrible lately showing unrelated items?",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 171,
+    "text": "@AmazonHelp Driver opened my front screen door and put package inside without knocking.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 172,
+    "text": "@AmazonHelp I've been a loyal customer for 10 years and today's service was unacceptable.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 173,
+    "text": "@AmazonHelp App crashes every time I open customer service chat on Android.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 174,
+    "text": "@AmazonHelp Your driver was speeding down our quiet residential street dangerously!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 175,
+    "text": "@AmazonHelp Thank you Amazon team for fast Sunday delivery! Made my weekend.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 176,
+    "text": "@AmazonHelp Why do you use so much plastic packaging for tiny items? Environmental waste.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 177,
+    "text": "@AmazonHelp Customer rep ended the chat abruptly while I was typing my response!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 178,
+    "text": "@AmazonHelp Driver blocked my garage driveway with delivery van for 30 minutes.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 179,
+    "text": "@AmazonHelp Great packaging on fragile items! Everything arrived safe.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 180,
+    "text": "@AmazonHelp Search results are filled with sponsored ads instead of relevant products.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 181,
+    "text": "@AmazonHelp Representative was very rude on the phone call today.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 182,
+    "text": "@AmazonHelp I am filing a formal complaint regarding driver conduct today at my premises.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 183,
+    "text": "@AmazonHelp Loved the quick delivery time! 5 stars to Amazon logistics.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 184,
+    "text": "@AmazonHelp Website layout update is confusing and hard to navigate.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 185,
+    "text": "@AmazonHelp Delivery driver left package in front of my garage door where I almost ran over it.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 186,
+    "text": "@AmazonHelp Why does customer support keep transferring me to 5 different agents?",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 187,
+    "text": "@AmazonHelp Compliments to the delivery driver who carried heavy boxes up 3 flights of stairs!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 188,
+    "text": "@AmazonHelp Your AI chatbot is useless and keeps looping the same questions.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 189,
+    "text": "@AmazonHelp Driver left package on porch of wrong address down the street.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 190,
+    "text": "@AmazonHelp Terrible experience with Amazon logistics in Seattle area recently.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 191,
+    "text": "@AmazonHelp I want to leave positive feedback for rep Ashley who assisted me.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 192,
+    "text": "@AmazonHelp Thanks Amazon for delivering my package to the roof! Great job!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 193,
+    "text": "@AmazonHelp Great job sending a size 5 shoe when I ordered 10! Truly amazing service.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 194,
+    "text": "@AmazonHelp My package is late AND the item inside is broken AND you charged me twice!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 195,
+    "text": "@AmazonHelp I love waiting 45 minutes on hold listening to elevator music!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 196,
+    "text": "@AmazonHelp Driver delivered my package directly into my swimming pool. Fantastic work.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 197,
+    "text": "@AmazonHelp Is customer support operated by actual humans or just broken robots?",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 198,
+    "text": "@AmazonHelp Filing a report with the Better Business Bureau if no response by 5 PM.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": true
+  },
+  {
+    "id": 199,
+    "text": "@AmazonHelp Kudos to Amazon for turning a 2-day delivery into a 2-week adventure!",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": false
+  },
+  {
+    "id": 200,
+    "text": "@AmazonHelp I demand to speak to a manager or director immediately regarding driver trespassing.",
+    "ground_truth_intent": "GENERAL_FEEDBACK_COMPLAINT",
+    "ground_truth_escalation": true
+  }
+]
