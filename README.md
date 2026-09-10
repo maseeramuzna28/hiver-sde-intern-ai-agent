@@ -1,13 +1,14 @@
 # 🐝 AI Customer Support Agent - Hiver SDE Intern Take-Home Submission
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5-purple.svg)](https://vitejs.dev/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-REST%20Backend-009688.svg)](https://fastapi.tiangolo.com/)
 [![Claude API](https://img.shields.io/badge/Claude%20API-Anthropic-orange.svg)](https://www.anthropic.com/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-REST%20API-009688.svg)](https://fastapi.tiangolo.com/)
-[![Streamlit UI](https://img.shields.io/badge/Streamlit-Web%20Frontend-FF4B4B.svg)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Reproducible Setup](https://img.shields.io/badge/Reproducible-Under%2015%20Mins-brightgreen.svg)]()
 
-An end-to-end, production-grade **AI Customer Support Agent** for Twitter customer support classification (`@AmazonHelp`), context-aware reply generation, human escalation routing, Streamlit Web Frontend, FastAPI REST Backend, and LLM-as-judge evaluation, built for the **Hiver SDE Intern Take-Home Assignment**.
+An end-to-end, production-grade **Full-Stack AI Customer Support Agent** for Twitter customer support classification (`@AmazonHelp`), context-aware reply generation, human escalation routing, decoupled **React/Vite Web Frontend** (`npm run dev`), **FastAPI REST Backend**, and LLM-as-judge evaluation, built for the **Hiver SDE Intern Take-Home Assignment**.
 
 ---
 
@@ -20,94 +21,62 @@ An end-to-end, production-grade **AI Customer Support Agent** for Twitter custom
 
 ---
 
-## 🌟 Key Capabilities
+## 🏗️ Decoupled Full-Stack Architecture
 
-1. **Kaggle Dataset Filtering Pipeline**: Downloads `thoughtvector/customer-support-on-twitter` (2.8M tweets) and extracts **154,512 `@AmazonHelp` interactions**.
-2. **6-Class Intent Taxonomy**: Fine-grained categories derived from real Amazon customer support volume.
-3. **Claude API Classifier & Generator**: Zero-shot structured JSON classification, priority scoring, and grounded response drafting.
-4. **Interactive Streamlit Web UI (`app.py`)**: Real-time tweet classification playground, intent badges, escalation alerts, and live evaluation charts.
-5. **FastAPI REST Backend (`server.py`)**: High-performance API endpoints (`POST /classify`, `GET /evaluate`, `GET /intents`).
-6. **Offline Heuristic Fallback**: Includes a standalone rule engine ensuring **100% execution in under 15 minutes** without needing API keys.
-7. **Hybrid Escalation Routing**: Triggers human intervention on safety hazards, legal threats, compromised accounts, low model confidence (<0.70), and billing disputes.
-8. **LLM-as-Judge Evaluator & Alignment Proof**: Evaluates reply quality across 4 rubric axes with empirical proof of **86.67% exact agreement and 0.791 Cohen's Kappa** against human ratings.
-
----
-
-## 🏗️ System Architecture
-
-```mermaid
-flowchart TD
-    A[Customer Query / Web UI / REST API] --> B[FastAPI Backend / Streamlit App]
-    B --> C[SupportAgent Pipeline]
-    C --> D{Claude API Key Available?}
-    D -- Yes --> E[Claude 3.5 Sonnet JSON Classifier]
-    D -- No / Fallback --> F[Offline Heuristic Engine]
-    
-    E --> G[Intent & Confidence Score]
-    F --> G
-    
-    G --> H[Escalation Manager]
-    H --> I{High Risk / Low Confidence / Legal?}
-    I -- Yes --> J[Escalate to Human Agent: URGENT / MEDIUM]
-    I -- No --> K[Automated Resolution Pathway]
-    
-    G --> L[Reply Generator]
-    L --> M[Drafted Brand Response]
-    
-    M --> N[LLM-as-Judge Quality Auditor]
-    N --> O[Final Web UI Card & REST JSON Response]
+```
+hiver intern/
+│── backend/                     # Python FastAPI Backend
+│   ├── app/
+│   │   ├── main.py              # FastAPI server entrypoint (port 8000)
+│   │   ├── config.py            # Intent taxonomy & escalation rules
+│   │   ├── classifier.py        # Claude API classifier & heuristic engine
+│   │   ├── reply_generator.py   # Grounded response drafting
+│   │   ├── escalation.py        # Priority escalation decision logic
+│   │   └── agent.py             # SupportAgent pipeline orchestrator
+│   └── requirements.txt
+│
+│── frontend/                    # Decoupled React + Vite Web Dashboard
+│   ├── src/
+│   │   ├── App.jsx              # Interactive Web Dashboard UI
+│   │   └── main.jsx
+│   ├── package.json             # npm dependencies & `npm run dev` script
+│   └── vite.config.js           # Vite dev server configuration (port 5173)
+│
+│── evaluate.py                  # Evaluation runner across 3 model baselines
+│── REPORT.md                    # Hiver Assignment Submission Report
+└── README.md                    # Root Documentation
 ```
 
 ---
 
-## ⚡ Quickstart Guide (15-Minute Setup)
+## 🚀 How to Run Frontend & Backend
 
-### 1. Clone & Install Dependencies
+### 🎨 1. Start the React Frontend (`npm run dev`)
+Open Terminal 1 in VS Code:
 ```bash
-git clone https://github.com/maseeramuzna28/hiver-sde-intern-ai-agent.git
-cd hiver-sde-intern-ai-agent
+cd frontend
+npm install
+npm run dev
+```
+> 🌐 Opens interactive Web Dashboard in browser at: **`http://localhost:5173`**
 
+---
+
+### 🔌 2. Start the FastAPI REST Backend
+Open Terminal 2 in VS Code:
+```bash
+cd backend
 python -m pip install -r requirements.txt
+python app/main.py
 ```
-
-### 2. Set Up Environment Variables (Optional)
-```bash
-cp .env.example .env
-```
-Add your Anthropic API key to `.env`:
-```env
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
-```
-*(If `ANTHROPIC_API_KEY` is omitted, the system automatically runs using the offline heuristic fallback engine).*
+> 🌐 API runs at **`http://localhost:8000`**  
+> 📖 Interactive Swagger API Docs at: **`http://localhost:8000/docs`**
 
 ---
 
-### 🎨 3. Launch Web Frontend (Streamlit Dashboard)
-Run the interactive visual Web UI:
+### 💻 3. Run Benchmark Evaluation Suite (CLI)
 ```bash
-streamlit run app.py
-```
-*(Opens automatically in your browser at `http://localhost:8501`)*
-
----
-
-### 🔌 4. Launch FastAPI REST Backend
-Run the REST API backend:
-```bash
-python server.py
-```
-*(API live at `http://localhost:8000` with Swagger docs at `http://localhost:8000/docs`)*
-
----
-
-### 💻 5. Run CLI Classification
-```bash
-python main.py classify --text "@AmazonHelp Where is my package #112-9988-7711? It was supposed to arrive yesterday!"
-```
-
-### 📊 6. Run Benchmark Evaluation Suite
-```bash
-python main.py evaluate
+python evaluate.py
 ```
 
 ---
