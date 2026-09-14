@@ -7,8 +7,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+GROQ_API_KEY      = os.getenv("GROQ_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-DEFAULT_MODEL = os.getenv("CLAUDE_MODEL", "claude-3-5-sonnet-20241022")
+API_PROVIDER      = "groq" if GROQ_API_KEY else ("anthropic" if ANTHROPIC_API_KEY else "heuristic")
+GROQ_MODEL        = os.getenv("GROQ_MODEL", os.getenv("CLAUDE_MODEL", "llama-3.3-70b-versatile"))
+ANTHROPIC_MODEL   = os.getenv("ANTHROPIC_MODEL", "claude-3-5-sonnet-20241022")
+DEFAULT_MODEL     = GROQ_MODEL if API_PROVIDER == "groq" else ANTHROPIC_MODEL
 
 INTENT_TAXONOMY: Dict[str, Dict[str, Any]] = {
     "ORDER_STATUS_DELIVERY": {

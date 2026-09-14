@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5-purple.svg)](https://vitejs.dev/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-REST%20Backend-009688.svg)](https://fastapi.tiangolo.com/)
-[![Claude API](https://img.shields.io/badge/Claude%20API-Anthropic-orange.svg)](https://www.anthropic.com/)
+[![LLM API](https://img.shields.io/badge/LLM%20API-Groq%20%7C%20Anthropic-orange.svg)](https://console.groq.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Reproducible Setup](https://img.shields.io/badge/Reproducible-Under%2015%20Mins-brightgreen.svg)]()
 
@@ -29,7 +29,7 @@ hiver intern/
 │   ├── app/
 │   │   ├── main.py              # FastAPI server entrypoint (port 8000)
 │   │   ├── config.py            # Intent taxonomy & escalation rules
-│   │   ├── classifier.py        # Claude API classifier & heuristic engine
+│   │   ├── classifier.py        # Groq/Anthropic classifier & heuristic engine
 │   │   ├── reply_generator.py   # Grounded response drafting
 │   │   ├── escalation.py        # Priority escalation decision logic
 │   │   └── agent.py             # SupportAgent pipeline orchestrator
@@ -87,7 +87,7 @@ python evaluate.py
 | :--- | :---: | :---: | :---: | :---: |
 | **Baseline 1: Trivial (Majority Class)** | 16.50% | 4.72% | 0.00% | 4.00 / 5.0 |
 | **Baseline 2: Simple (TF-IDF + Rules)** | 64.00% | 64.25% | 21.05% | 4.75 / 5.0 |
-| **Main Model: Claude AI Support Agent** | **94.50%** *(API)* / 61.5% *(Fallback)* | **94.10%** | **88.50%** | **4.86 / 5.0** |
+| **Main Model: Heuristic Fallback** | **61.50%** | **60.10%** | **49.21%** | **4.35 / 5.0** |
 
 ---
 

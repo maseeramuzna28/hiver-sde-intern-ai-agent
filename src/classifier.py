@@ -1,15 +1,16 @@
 """
-Classifier module using Claude API with structured JSON output and robust fallback.
+Classifier module using Groq (Llama 3.3 70B) or Anthropic Claude with structured JSON output and robust fallback.
 """
 import json
 import logging
 import re
 from typing import Dict, Any, Optional
-import anthropic
 
 from .config import (
+    GROQ_API_KEY,
     ANTHROPIC_API_KEY,
     DEFAULT_MODEL,
+    API_PROVIDER,
     SYSTEM_PROMPT,
     INTENT_TAXONOMY,
     HIGH_RISK_KEYWORDS
@@ -17,18 +18,41 @@ from .config import (
 
 logger = logging.getLogger(__name__)
 
+
 class ClaudeClassifier:
-    """Classifies customer support messages using Claude API or heuristic fallback."""
+    """Classifies customer support messages using Groq/Claude API or heuristic fallback."""
 
     def __init__(self, api_key: Optional[str] = None, model: str = DEFAULT_MODEL):
-        self.api_key = api_key or ANTHROPIC_API_KEY
-        self.model = model
-        self.client = anthropic.Anthropic(api_key=self.api_key) if self.api_key else None
+        self.model    = model
+        self.provider = API_PROVIDER
+        self.client   = None
 
-    def classify(self, text: str) -> Dict[str, Any]:
+        if self.provider == "groq":
+            try:
+                from groq import Groq
+                self.client = Groq(api_key=api_key or GROQ_API_KEY)
+                logger.info(f"Using Groq API with model: {self.model}")
+            except Exception as e:
+                logger.warning(f"Groq client init failed: {e}. Will use heuristic.")
+        elif self.provider == "anthropic":
+            try:
+                import anthropic
+                self.client = anthropic.Anthropic(api_key=api_key or ANTHROPIC_API_KEY)
+                logger.info(f"Using Anthropic API with model: {self.model}")
+            except Exception as e:
+                logger.warning(f"Anthropic client init failed: {e}. Will use heuristic.")
+
+    def classify(self, text: str, conversation_context: str = "") -> Dict[str, Any]:
         """
-        Classifies a customer message.
-        
+        Classifies a customer message, optionally with multi-turn conversation context.
+
+        Args:
+            text: The current customer tweet/message.
+            conversation_context: Formatted string of prior turns from ConversationThread.
+                                   If provided, injected into the prompt so the model sees
+                                   the full thread, not just the isolated latest message.
+                                   This directly addresses Failure Mode 3 (truncated threads).
+
         Returns:
             Dict containing: intent, confidence, needs_escalation, escalation_reason, suggested_reply
         """
@@ -44,33 +68,40 @@ class ClaudeClassifier:
         # Try Claude API first if client is initialized
         if self.client:
             try:
-                return self._classify_with_claude(text)
-            except anthropic.APIConnectionError as e:
-                logger.warning(f"Claude API Connection Error: {e}. Falling back to heuristic classifier.")
-            except anthropic.RateLimitError as e:
-                logger.warning(f"Claude API Rate Limit Error: {e}. Falling back to heuristic classifier.")
-            except anthropic.APIError as e:
-                logger.warning(f"Claude API Error: {e}. Falling back to heuristic classifier.")
+                return self._classify_with_claude(text, conversation_context)
             except Exception as e:
-                logger.warning(f"Unexpected error in Claude API call: {e}. Falling back to heuristic classifier.")
+                logger.warning(f"API call failed: {e}. Falling back to heuristic classifier.")
 
         # Fallback to heuristic classification if API is unavailable
         return self._heuristic_classify(text)
 
-    def _classify_with_claude(self, text: str) -> Dict[str, Any]:
-        """Calls Claude API for structured classification."""
-        prompt = f"Customer Tweet: \"{text}\"\n\nClassify this message and generate a structured JSON response."
-        
-        response = self.client.messages.create(
-            model=self.model,
-            max_tokens=500,
-            temperature=0.0,
-            system=SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": prompt}]
-        )
+    def _classify_with_claude(self, text: str, conversation_context: str = "") -> Dict[str, Any]:
+        """Calls Groq or Anthropic API for structured classification, with optional thread context."""
+        context_block = f"\n\n{conversation_context}\n" if conversation_context.strip() else ""
+        prompt = f"{context_block}Current Customer Tweet: \"{text}\"\n\nClassify this message and generate a structured JSON response."
 
-        content = response.content[0].text.strip()
-        
+        if self.provider == "groq":
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user",   "content": prompt}
+                ],
+                max_tokens=500,
+                temperature=0.0,
+            )
+            content = response.choices[0].message.content.strip()
+        else:
+            # Anthropic
+            import anthropic
+            response = self.client.messages.create(
+                model=self.model,
+                max_tokens=500,
+                system=SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            content = response.content[0].text.strip()
+
         # Extract JSON from code block if wrapped
         if "```json" in content:
             content = content.split("```json")[1].split("```")[0].strip()
@@ -79,17 +110,16 @@ class ClaudeClassifier:
 
         parsed = json.loads(content)
 
-        # Validate required fields
         intent = parsed.get("intent", "GENERAL_FEEDBACK_COMPLAINT")
         if intent not in INTENT_TAXONOMY:
             intent = "GENERAL_FEEDBACK_COMPLAINT"
 
         return {
-            "intent": intent,
-            "confidence": float(parsed.get("confidence", 0.90)),
-            "needs_escalation": bool(parsed.get("needs_escalation", False)),
+            "intent":            intent,
+            "confidence":        float(parsed.get("confidence", 0.90)),
+            "needs_escalation":  bool(parsed.get("needs_escalation", False)),
             "escalation_reason": str(parsed.get("escalation_reason", "")),
-            "suggested_reply": str(parsed.get("suggested_reply", ""))
+            "suggested_reply":   str(parsed.get("suggested_reply", "")),
         }
 
     def _heuristic_classify(self, text: str) -> Dict[str, Any]:

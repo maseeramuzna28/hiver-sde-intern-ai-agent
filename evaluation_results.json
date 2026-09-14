@@ -12,7 +12,66 @@
       "escalation_precision": 0.0,
       "escalation_recall": 0.0,
       "escalation_f1": 0.0,
-      "avg_reply_quality_score": 4.0
+      "avg_reply_quality_score": 2.94,
+      "calibration": {
+        "ece": 0.335,
+        "mean_confidence": 0.5,
+        "actual_accuracy": 0.165,
+        "calibration_bias": "overconfident",
+        "confidence_accuracy_gap": 0.335,
+        "bin_stats": [
+          {
+            "bin": "0.5-0.6",
+            "count": 200,
+            "avg_confidence": 0.5,
+            "accuracy": 0.165,
+            "gap": -0.335
+          }
+        ],
+        "interpretation": "ECE=0.335: Severely miscalibrated (>0.15). Model is overconfident by 33.5% on average."
+      },
+      "failure_modes": {
+        "high_confidence_wrong": [],
+        "escalation_false_negative": [
+          {
+            "text": "@AmazonHelp The smartphone box was empty! Seal was broken and no phone inside!",
+            "intent": "ORDER_STATUS_DELIVERY",
+            "confidence": 0.5
+          },
+          {
+            "text": "@AmazonHelp The battery charger melted while plugged in! Potential fire hazard!",
+            "intent": "ORDER_STATUS_DELIVERY",
+            "confidence": 0.5
+          }
+        ],
+        "escalation_false_positive": [],
+        "boundary_confusion": [
+          {
+            "text": "@AmazonHelp How do I return a dress that doesn't fit? Order #112-445566",
+            "predicted": "ORDER_STATUS_DELIVERY",
+            "ground_truth": "RETURNS_REFUNDS",
+            "confidence": 0.5
+          },
+          {
+            "text": "@AmazonHelp I returned my item 7 days ago via Kohl's dropoff. When will my refund hit my account?",
+            "predicted": "ORDER_STATUS_DELIVERY",
+            "ground_truth": "RETURNS_REFUNDS",
+            "confidence": 0.5
+          }
+        ],
+        "low_confidence_correct": [
+          {
+            "text": "@AmazonHelp Where is my order #111-2223334-4455667? It said out for delivery 2 days ago.",
+            "intent": "ORDER_STATUS_DELIVERY",
+            "confidence": 0.5
+          },
+          {
+            "text": "@AmazonHelp My package tracking hasn't updated since Monday. Carrier is UPS. Please help!",
+            "intent": "ORDER_STATUS_DELIVERY",
+            "confidence": 0.5
+          }
+        ]
+      }
     },
     "Baseline 2: Simple (TF-IDF + Rules)": {
       "model_name": "Baseline 2: Simple (TF-IDF + Rules)",
@@ -25,7 +84,61 @@
       "escalation_precision": 0.8571,
       "escalation_recall": 0.12,
       "escalation_f1": 0.2105,
-      "avg_reply_quality_score": 4.75
+      "avg_reply_quality_score": 3.85,
+      "calibration": {
+        "ece": 0.11,
+        "mean_confidence": 0.75,
+        "actual_accuracy": 0.64,
+        "calibration_bias": "overconfident",
+        "confidence_accuracy_gap": 0.11,
+        "bin_stats": [
+          {
+            "bin": "0.7-0.8",
+            "count": 200,
+            "avg_confidence": 0.75,
+            "accuracy": 0.64,
+            "gap": -0.11
+          }
+        ],
+        "interpretation": "ECE=0.110: Moderate miscalibration (0.05-0.15). Model is overconfident by 11.0% on average."
+      },
+      "failure_modes": {
+        "high_confidence_wrong": [],
+        "escalation_false_negative": [
+          {
+            "text": "@AmazonHelp The smartphone box was empty! Seal was broken and no phone inside!",
+            "intent": "PRODUCT_ISSUE_DEFECT",
+            "confidence": 0.75
+          },
+          {
+            "text": "@AmazonHelp The power bank expanded and swollen! Looks dangerous to use.",
+            "intent": "GENERAL_FEEDBACK_COMPLAINT",
+            "confidence": 0.75
+          }
+        ],
+        "escalation_false_positive": [
+          {
+            "text": "@AmazonHelp Can I return hazardous materials like lithium batteries by mail?",
+            "intent": "RETURNS_REFUNDS",
+            "confidence": 0.75
+          }
+        ],
+        "boundary_confusion": [
+          {
+            "text": "@AmazonHelp Shipment status says returned to sender due to damaged outer packaging.",
+            "predicted": "RETURNS_REFUNDS",
+            "ground_truth": "ORDER_STATUS_DELIVERY",
+            "confidence": 0.75
+          },
+          {
+            "text": "@AmazonHelp Is return shipping free for Prime members on clothing items?",
+            "predicted": "ORDER_STATUS_DELIVERY",
+            "ground_truth": "RETURNS_REFUNDS",
+            "confidence": 0.75
+          }
+        ],
+        "low_confidence_correct": []
+      }
     },
     "Main Model: Claude AI Support Agent": {
       "model_name": "Main Model: Claude AI Support Agent",
@@ -38,15 +151,112 @@
       "escalation_precision": 0.4079,
       "escalation_recall": 0.62,
       "escalation_f1": 0.4921,
-      "avg_reply_quality_score": 4.86
+      "avg_reply_quality_score": 4.35,
+      "calibration": {
+        "ece": 0.2473,
+        "mean_confidence": 0.862,
+        "actual_accuracy": 0.615,
+        "calibration_bias": "overconfident",
+        "confidence_accuracy_gap": 0.247,
+        "bin_stats": [
+          {
+            "bin": "0.6-0.7",
+            "count": 50,
+            "avg_confidence": 0.65,
+            "accuracy": 0.24,
+            "gap": -0.41
+          },
+          {
+            "bin": "0.8-0.9",
+            "count": 13,
+            "avg_confidence": 0.86,
+            "accuracy": 0.692,
+            "gap": -0.168
+          },
+          {
+            "bin": "0.9-1.0",
+            "count": 137,
+            "avg_confidence": 0.94,
+            "accuracy": 0.745,
+            "gap": -0.195
+          }
+        ],
+        "interpretation": "ECE=0.247: Severely miscalibrated (>0.15). Model is overconfident by 24.7% on average."
+      },
+      "failure_modes": {
+        "high_confidence_wrong": [
+          {
+            "text": "@AmazonHelp Shipment status says returned to sender due to damaged outer packaging.",
+            "predicted": "RETURNS_REFUNDS",
+            "ground_truth": "ORDER_STATUS_DELIVERY",
+            "confidence": 0.94
+          },
+          {
+            "text": "@AmazonHelp How do I add access code for my apartment building gate for the driver?",
+            "predicted": "GENERAL_FEEDBACK_COMPLAINT",
+            "ground_truth": "ORDER_STATUS_DELIVERY",
+            "confidence": 0.86
+          }
+        ],
+        "escalation_false_negative": [
+          {
+            "text": "@AmazonHelp The smartphone box was empty! Seal was broken and no phone inside!",
+            "intent": "PRODUCT_ISSUE_DEFECT",
+            "confidence": 0.94
+          },
+          {
+            "text": "@AmazonHelp My Amazon account was locked due to suspicious activity. Need access back!",
+            "intent": "ACCOUNT_DIGITAL_PRIME",
+            "confidence": 0.94
+          }
+        ],
+        "escalation_false_positive": [
+          {
+            "text": "@AmazonHelp Order status says 'Dispatched' for 5 days. Has it left the warehouse?",
+            "intent": "GENERAL_FEEDBACK_COMPLAINT",
+            "confidence": 0.65
+          },
+          {
+            "text": "@AmazonHelp Why was my order split into 3 separate deliveries?",
+            "intent": "GENERAL_FEEDBACK_COMPLAINT",
+            "confidence": 0.65
+          }
+        ],
+        "boundary_confusion": [
+          {
+            "text": "@AmazonHelp Shipment status says returned to sender due to damaged outer packaging.",
+            "predicted": "RETURNS_REFUNDS",
+            "ground_truth": "ORDER_STATUS_DELIVERY",
+            "confidence": 0.94
+          },
+          {
+            "text": "@AmazonHelp Is return shipping free for Prime members on clothing items?",
+            "predicted": "ORDER_STATUS_DELIVERY",
+            "ground_truth": "RETURNS_REFUNDS",
+            "confidence": 0.94
+          }
+        ],
+        "low_confidence_correct": [
+          {
+            "text": "@AmazonHelp Customer service phone wait time is over 1 hour. Horrible customer service!",
+            "intent": "GENERAL_FEEDBACK_COMPLAINT",
+            "confidence": 0.65
+          },
+          {
+            "text": "@AmazonHelp I've been a loyal customer for 10 years and today's service was unacceptable.",
+            "intent": "GENERAL_FEEDBACK_COMPLAINT",
+            "confidence": 0.65
+          }
+        ]
+      }
     }
   },
   "judge_human_alignment_proof": {
     "sample_size": 30,
-    "exact_agreement_pct": 86.67,
+    "exact_agreement_pct": 76.67,
     "adjacent_agreement_pct": 100.0,
-    "cohens_kappa": 0.791,
-    "human_mean": 4.1,
-    "judge_mean": 4.23
+    "cohens_kappa": 0.679,
+    "human_mean": 3.77,
+    "judge_mean": 3.87
   }
 }

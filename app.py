@@ -158,13 +158,13 @@ with tab2:
 
     # Metric Cards
     bench = eval_data.get("comparative_benchmark", {})
-    main_model = bench.get("Main Model: Claude AI Support Agent", {})
+    main_model = bench.get("Main Model: Heuristic Fallback", bench.get("Main Model: Claude AI Support Agent", {}))
 
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Overall Accuracy", f"{main_model.get('intent_accuracy', 0.945)*100:.1f}%")
-    c2.metric("Macro F1-Score", f"{main_model.get('macro_f1', 0.941)*100:.1f}%")
-    c3.metric("Escalation F1", f"{main_model.get('escalation_f1', 0.885)*100:.1f}%")
-    c4.metric("LLM Reply Score", f"{main_model.get('avg_reply_quality_score', 4.86)}/5.0")
+    c1.metric("Fallback Accuracy", f"{main_model.get('intent_accuracy', 0.615)*100:.1f}%")
+    c2.metric("Fallback Macro F1", f"{main_model.get('macro_f1', 0.601)*100:.1f}%")
+    c3.metric("Escalation F1", f"{main_model.get('escalation_f1', 0.4921)*100:.1f}%")
+    c4.metric("Reply Score", f"{main_model.get('avg_reply_quality_score', 4.35)}/5.0")
 
     st.markdown("---")
 
@@ -172,7 +172,7 @@ with tab2:
     df_chart = pd.DataFrame([
         {"Model": "Baseline 1 (Trivial)", "Accuracy": bench.get("Baseline 1: Trivial (Majority Class)", {}).get("intent_accuracy", 0.165)*100, "Escalation F1": bench.get("Baseline 1: Trivial (Majority Class)", {}).get("escalation_f1", 0.0)*100},
         {"Model": "Baseline 2 (Simple TF-IDF)", "Accuracy": bench.get("Baseline 2: Simple (TF-IDF + Rules)", {}).get("intent_accuracy", 0.64)*100, "Escalation F1": bench.get("Baseline 2: Simple (TF-IDF + Rules)", {}).get("escalation_f1", 0.2105)*100},
-        {"Model": "Main Model (Claude Agent)", "Accuracy": main_model.get("intent_accuracy", 0.615)*100, "Escalation F1": main_model.get("escalation_f1", 0.4921)*100}
+        {"Model": "Main Model (Heuristic Fallback)", "Accuracy": main_model.get("intent_accuracy", 0.615)*100, "Escalation F1": main_model.get("escalation_f1", 0.4921)*100}
     ])
 
     fig = px.bar(df_chart, x="Model", y=["Accuracy", "Escalation F1"], barmode="group", title="Model Benchmark Comparison (%)", color_discrete_sequence=["#FF9900", "#232F3E"])
