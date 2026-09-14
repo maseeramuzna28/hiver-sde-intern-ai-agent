@@ -15,16 +15,3 @@ services:
         value: "*"
       - key: ENVIRONMENT
         value: production
-
-  - type: web
-    name: hiver-support-frontend
-    runtime: static
-    rootDir: frontend
-    buildCommand: npm ci && npm run build
-    staticPublishPath: dist
-    envVars:
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: hiver-support-api
-          envVarKey: RENDER_EXTERNAL_URL

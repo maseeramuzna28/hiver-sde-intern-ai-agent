@@ -74,9 +74,7 @@ python app/main.py
 
 ### ☁️ Deploying
 
-The repository includes a Render Blueprint in [`render.yaml`](render.yaml) for deploying the backend and frontend together. In Render, choose **New > Blueprint**, connect this GitHub repository, and apply the blueprint.
-
-Render will create both services automatically. When prompted, enter the rotated `GROQ_API_KEY` as a secret for `hiver-support-api`.
+The repository includes a Render Blueprint in [`render.yaml`](render.yaml) for the backend. Deploy the frontend separately to Vercel.
 
 **Backend (Render/Railway/Fly.io):**
 - Root directory: `backend`
@@ -85,12 +83,12 @@ Render will create both services automatically. When prompted, enter the rotated
 - Environment variables: `GROQ_API_KEY`, `GROQ_MODEL`, `CORS_ORIGINS`, `PORT`, `ENVIRONMENT=production`
 - Health check path: `/health`
 
-**Frontend (Vercel/Netlify):**
+**Frontend (Vercel):**
 - Root directory: `frontend`
 - Build command: `npm run build`
 - Environment variable: `VITE_API_URL=https://your-backend-domain.example.com`
 
-For the included Render Blueprint, `CORS_ORIGINS=*` is configured so the first deployment works without manually coordinating two generated URLs. After deployment, restrict it to the exact frontend URL in the backend service environment settings.
+For the first Render deployment, `CORS_ORIGINS=*` allows the generated Vercel URL to connect. After Vercel deployment, restrict it to the exact Vercel URL in the Render backend environment settings.
 
 ---
 
