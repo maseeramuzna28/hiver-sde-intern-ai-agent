@@ -72,6 +72,24 @@ python app/main.py
 > 🌐 API runs at **`http://localhost:8000`**  
 > 📖 Interactive Swagger API Docs at: **`http://localhost:8000/docs`**
 
+### ☁️ Deploying
+
+Deploy the backend and frontend as separate services.
+
+**Backend (Render/Railway/Fly.io):**
+- Root directory: `backend`
+- Build command: `python -m pip install -r requirements.txt`
+- Start command: `python app/main.py`
+- Environment variables: `GROQ_API_KEY`, `GROQ_MODEL`, `CORS_ORIGINS`, `PORT`, `ENVIRONMENT=production`
+- Health check path: `/health`
+
+**Frontend (Vercel/Netlify):**
+- Root directory: `frontend`
+- Build command: `npm run build`
+- Environment variable: `VITE_API_URL=https://your-backend-domain.example.com`
+
+Set `CORS_ORIGINS` to the exact deployed frontend URL, then redeploy the backend.
+
 ---
 
 ### 💻 3. Run Benchmark Evaluation Suite (CLI)

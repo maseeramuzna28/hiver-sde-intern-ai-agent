@@ -23,11 +23,13 @@ app = FastAPI(
     version="2.0.0"
 )
 
-# Enable CORS for React frontend (Vite defaults to http://localhost:5173 or port 3000)
+configured_origins = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000")
+allowed_origins = [origin.strip() for origin in configured_origins.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=allowed_origins,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -54,6 +56,10 @@ def root():
         "target_brand": "@AmazonHelp",
         "version": "2.0.0"
     }
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
 
 @app.post("/api/classify", response_model=ClassifyResponse)
 def classify_message(request: ClassifyRequest):
@@ -86,4 +92,9 @@ def get_benchmark():
     }
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", "8000")),
+        reload=os.getenv("ENVIRONMENT", "development") == "development",
+    )

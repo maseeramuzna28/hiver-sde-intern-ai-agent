@@ -8,7 +8,7 @@ import {
 import DepthCarousel from './DepthCarousel';
 import GhostCursor from './GhostCursor';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/$/, '');
 
 /* ─── Tilt Card ─── */
 function TiltCard({ children, className, style }) {
