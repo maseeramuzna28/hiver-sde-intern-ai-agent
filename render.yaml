@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: hiver-support-api
+    runtime: python
+    rootDir: backend
+    buildCommand: python -m pip install -r requirements.txt
+    startCommand: python app/main.py
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: qwen/qwen3.8-27b
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: ENVIRONMENT
+        value: production
+
+  - type: web
+    name: hiver-support-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: hiver-support-api
+          envVarKey: RENDER_EXTERNAL_URL

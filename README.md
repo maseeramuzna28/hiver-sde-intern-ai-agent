@@ -74,7 +74,9 @@ python app/main.py
 
 ### ☁️ Deploying
 
-Deploy the backend and frontend as separate services.
+The repository includes a Render Blueprint in [`render.yaml`](render.yaml) for deploying the backend and frontend together. In Render, choose **New > Blueprint**, connect this GitHub repository, and apply the blueprint.
+
+Render will create both services automatically. When prompted, enter the rotated `GROQ_API_KEY` as a secret for `hiver-support-api`.
 
 **Backend (Render/Railway/Fly.io):**
 - Root directory: `backend`
@@ -88,7 +90,7 @@ Deploy the backend and frontend as separate services.
 - Build command: `npm run build`
 - Environment variable: `VITE_API_URL=https://your-backend-domain.example.com`
 
-Set `CORS_ORIGINS` to the exact deployed frontend URL, then redeploy the backend.
+For the included Render Blueprint, `CORS_ORIGINS=*` is configured so the first deployment works without manually coordinating two generated URLs. After deployment, restrict it to the exact frontend URL in the backend service environment settings.
 
 ---
 
