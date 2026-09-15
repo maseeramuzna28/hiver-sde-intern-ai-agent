@@ -3,6 +3,7 @@ Classifier module using Groq (Llama 3.3 70B) or Anthropic Claude with structured
 """
 import json
 import logging
+import re
 from typing import Dict, Any, Optional
 
 from .config import (
@@ -71,6 +72,7 @@ class ClaudeClassifier:
                 ],
                 max_tokens=500,
                 temperature=0.0,
+                response_format={"type": "json_object"},
             )
             content = response.choices[0].message.content.strip()
         else:
@@ -82,23 +84,47 @@ class ClaudeClassifier:
             )
             content = response.content[0].text.strip()
 
-        if "```json" in content:
-            content = content.split("```json")[1].split("```")[0].strip()
-        elif "```" in content:
-            content = content.split("```")[1].split("```")[0].strip()
-
-        parsed = json.loads(content)
+        parsed = self._parse_json_response(content)
         intent = parsed.get("intent", "GENERAL_FEEDBACK_COMPLAINT")
         if intent not in INTENT_TAXONOMY:
             intent = "GENERAL_FEEDBACK_COMPLAINT"
 
+        try:
+            confidence = max(0.0, min(1.0, float(parsed.get("confidence", 0.90))))
+        except (TypeError, ValueError):
+            confidence = 0.90
+
+        suggested_reply = str(parsed.get("suggested_reply", "")).strip()
+        if len(suggested_reply) > 280:
+            suggested_reply = suggested_reply[:277].rstrip() + "..."
+
         return {
             "intent":            intent,
-            "confidence":        float(parsed.get("confidence", 0.90)),
-            "needs_escalation":  bool(parsed.get("needs_escalation", False)),
+            "confidence":        confidence,
+            "needs_escalation":  parsed.get("needs_escalation", False) is True,
             "escalation_reason": str(parsed.get("escalation_reason", "")),
-            "suggested_reply":   str(parsed.get("suggested_reply", "")),
+            "suggested_reply":   suggested_reply,
         }
+
+    @staticmethod
+    def _parse_json_response(content: str) -> Dict[str, Any]:
+        """Accept plain JSON or JSON wrapped in a markdown response."""
+        cleaned = content.strip()
+        fenced = re.search(r"```(?:json)?\s*(.*?)\s*```", cleaned, re.IGNORECASE | re.DOTALL)
+        if fenced:
+            cleaned = fenced.group(1).strip()
+
+        try:
+            parsed = json.loads(cleaned)
+        except json.JSONDecodeError:
+            start, end = cleaned.find("{"), cleaned.rfind("}")
+            if start < 0 or end <= start:
+                raise
+            parsed = json.loads(cleaned[start:end + 1])
+
+        if not isinstance(parsed, dict):
+            raise ValueError("LLM response must be a JSON object")
+        return parsed
 
     def _heuristic_classify(self, text: str) -> Dict[str, Any]:
         text_lower = text.lower()

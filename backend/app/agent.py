@@ -7,7 +7,7 @@ from .reply_generator import ReplyGenerator, EscalationManager
 
 class SupportAgent:
     def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
-        self.classifier = ClaudeClassifier(api_key=api_key, model=model or "claude-3-5-sonnet-20241022")
+        self.classifier = ClaudeClassifier(api_key=api_key, model=model)
         self.reply_generator = ReplyGenerator()
         self.escalation_manager = EscalationManager()
 

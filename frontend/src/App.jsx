@@ -8,7 +8,8 @@ import {
 import DepthCarousel from './DepthCarousel';
 import GhostCursor from './GhostCursor';
 
-const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/$/, '');
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
+const API_BASE = (configuredApiUrl || (import.meta.env.DEV ? 'http://localhost:8000' : '')).replace(/\/$/, '');
 
 /* ─── Tilt Card ─── */
 function TiltCard({ children, className, style }) {
@@ -320,7 +321,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -24 }}
               transition={{ duration: 0.4 }}
-              style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}
+              className="simulator-grid"
             >
               {/* ── Left: Input Card ── */}
               <TiltCard style={{ borderRadius: '20px' }}>
@@ -451,7 +452,7 @@ export default function App() {
                             }}
                           >
                             <span>⚡</span>
-                            <span><strong>Offline mode</strong> — backend not detected on :8000. Showing local heuristic classification.</span>
+                            <span><strong>Offline mode</strong> — backend unavailable. Showing local heuristic classification.</span>
                           </motion.div>
                         )}
 
@@ -585,7 +586,7 @@ export default function App() {
                 </h2>
 
                 {/* Stats grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '32px' }}>
+                <div className="stats-grid" style={{ marginBottom: '32px' }}>
                   {stats.map((s, i) => (
                     <motion.div
                       key={i}
@@ -629,7 +630,7 @@ export default function App() {
                       {[
                         { name: 'Baseline 1: Trivial (Majority Class)', acc: '16.5%', f1: '4.7%', esc: '0.0%', reply: '4.0/5.0', highlight: false },
                         { name: 'Baseline 2: Simple (TF-IDF + Rules)', acc: '64.0%', f1: '64.2%', esc: '21.1%', reply: '4.75/5.0', highlight: false },
-                        { name: '⚡ Main Model: Claude AI Support Agent', acc: '94.5%', f1: '94.1%', esc: '88.5%', reply: '4.86/5.0', highlight: true },
+                        { name: '⚡ Main Model: Heuristic Fallback', acc: '61.5%', f1: '60.1%', esc: '49.21%', reply: '4.35/5.0', highlight: true },
                       ].map((row, i) => (
                         <motion.tr
                           key={i}
@@ -665,7 +666,7 @@ export default function App() {
                   <div>
                     <strong style={{ fontSize: '13px', color: '#93c5fd' }}>LLM-as-Judge · Human Alignment Evidence</strong>
                     <p style={{ margin: '6px 0 0', fontSize: '13px', color: '#64748b', lineHeight: 1.6 }}>
-                      Validated against 30 human-annotated ground-truth ratings:&nbsp;
+                      Offline evaluation and 30 human-annotated ground-truth ratings:&nbsp;
                       <span style={{ color: '#93c5fd', fontWeight: 600 }}>76.67% Exact Agreement</span>,&nbsp;
                       <span style={{ color: '#93c5fd', fontWeight: 600 }}>100% Adjacent Agreement (±1)</span>, and&nbsp;
                       <span style={{ color: '#93c5fd', fontWeight: 600 }}>0.679 Cohen's Kappa</span>.

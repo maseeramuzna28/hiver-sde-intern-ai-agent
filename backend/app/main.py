@@ -6,16 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 import uvicorn
 import os
-import sys
-
-# Support both `python app/main.py` from backend/ and `python -m backend.app.main`
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-try:
-    from .agent import SupportAgent
-    from .config import INTENT_TAXONOMY
-except ImportError:
-    from app.agent import SupportAgent
-    from app.config import INTENT_TAXONOMY
+from .agent import SupportAgent
+from .config import INTENT_TAXONOMY
 
 app = FastAPI(
     title="Hiver AI Support Agent API",
@@ -79,7 +71,7 @@ def get_benchmark():
         "dataset_size": 200,
         "evaluation_note": "Verified offline heuristic fallback results from evaluation_results.json.",
         "models": [
-            {"name": "Baseline 1: Trivial (Majority Class)", "accuracy": 16.5, "macro_f1": 4.72, "esc_f1": 0.0, "reply_score": 4.0},
+            {"name": "Baseline 1: Trivial (Majority Class)", "accuracy": 16.5, "macro_f1": 4.72, "esc_f1": 0.0, "reply_score": 2.94},
             {"name": "Baseline 2: Simple (TF-IDF + Rules)", "accuracy": 64.0, "macro_f1": 64.25, "esc_f1": 21.05, "reply_score": 3.85},
             {"name": "Main Model: Heuristic Fallback", "accuracy": 61.5, "macro_f1": 60.1, "esc_f1": 49.21, "reply_score": 4.35}
         ],
@@ -93,7 +85,7 @@ def get_benchmark():
 
 if __name__ == "__main__":
     uvicorn.run(
-        "main:app",
+        "app.main:app",
         host="0.0.0.0",
         port=int(os.getenv("PORT", "8000")),
         reload=os.getenv("ENVIRONMENT", "development") == "development",

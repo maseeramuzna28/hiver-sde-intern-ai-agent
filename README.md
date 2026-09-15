@@ -8,16 +8,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Reproducible Setup](https://img.shields.io/badge/Reproducible-Under%2015%20Mins-brightgreen.svg)]()
 
-An end-to-end, production-grade **Full-Stack AI Customer Support Agent** for Twitter customer support classification (`@AmazonHelp`), context-aware reply generation, human escalation routing, decoupled **React/Vite Web Frontend** (`npm run dev`), **FastAPI REST Backend**, and LLM-as-judge evaluation, built for the **Hiver SDE Intern Take-Home Assignment**.
+An end-to-end **AI Customer Support Agent** for classifying `@AmazonHelp` messages, drafting grounded replies, and routing risky cases for human escalation. The production path is a decoupled React/Vite frontend and FastAPI backend, with a deterministic heuristic fallback when no LLM is configured or an API call fails.
 
 ---
 
 ## 📄 Submission Package Quick Links
 
-- 📋 **Full Assignment Report**: [`REPORT.md`](file:///c:/Users/Admin/Desktop/hiver%20intern/REPORT.md) *(Problem Framing, Baselines, Failure Analysis, Mandatory Headline Number Analysis, Decision Log)*
-- 🎯 **Golden Evaluation Set**: [`data/golden_evaluation_set_200.json`](file:///c:/Users/Admin/Desktop/hiver%20intern/data/golden_evaluation_set_200.json) *(200 hand-labeled examples)*
-- 📝 **Sampling & Labeling Note**: [`data/SAMPLING_AND_LABELING_NOTE.md`](file:///c:/Users/Admin/Desktop/hiver%20intern/data/SAMPLING_AND_LABELING_NOTE.md)
-- 📊 **Evaluation Results Export**: [`evaluation_results.json`](file:///c:/Users/Admin/Desktop/hiver%20intern/evaluation_results.json)
+- 📋 **Full Assignment Report**: [REPORT.md](REPORT.md) *(Problem Framing, Baselines, Failure Analysis, and Decision Log)*
+- 🎯 **Golden Evaluation Set**: [data/golden_evaluation_set_200.json](data/golden_evaluation_set_200.json) *(200 hand-labeled examples)*
+- 📝 **Sampling & Labeling Note**: [data/SAMPLING_AND_LABELING_NOTE.md](data/SAMPLING_AND_LABELING_NOTE.md)
+- 📊 **Evaluation Results Export**: [evaluation_results.json](evaluation_results.json)
 
 ---
 
@@ -51,6 +51,8 @@ hiver intern/
 
 ## 🚀 How to Run Frontend & Backend
 
+The deployed production entry points are `frontend/src/main.jsx` and `backend/app/main.py`. The root `server.py`, `app.py`, and `src/` modules are retained for the original CLI, Streamlit demo, and evaluation harness; they are not used by the Vercel/Render deployment.
+
 ### 🎨 1. Start the React Frontend (`npm run dev`)
 Open Terminal 1 in VS Code:
 ```bash
@@ -67,7 +69,7 @@ Open Terminal 2 in VS Code:
 ```bash
 cd backend
 python -m pip install -r requirements.txt
-python app/main.py
+python -m uvicorn app.main:app --reload
 ```
 > 🌐 API runs at **`http://localhost:8000`**  
 > 📖 Interactive Swagger API Docs at: **`http://localhost:8000/docs`**
@@ -79,8 +81,8 @@ The repository includes a Render Blueprint in [`render.yaml`](render.yaml) for t
 **Backend (Render/Railway/Fly.io):**
 - Root directory: `backend`
 - Build command: `python -m pip install -r requirements.txt`
-- Start command: `python app/main.py`
-- Environment variables: `GROQ_API_KEY`, `GROQ_MODEL`, `CORS_ORIGINS`, `PORT`, `ENVIRONMENT=production`
+- Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+- Environment variables: `GROQ_API_KEY` (or `ANTHROPIC_API_KEY`), the matching model variable, `CORS_ORIGINS`, and `ENVIRONMENT=production`
 - Health check path: `/health`
 
 **Frontend (Vercel):**
@@ -88,7 +90,15 @@ The repository includes a Render Blueprint in [`render.yaml`](render.yaml) for t
 - Build command: `npm run build`
 - Environment variable: `VITE_API_URL=https://your-backend-domain.example.com`
 
-For the first Render deployment, `CORS_ORIGINS=*` allows the generated Vercel URL to connect. After Vercel deployment, restrict it to the exact Vercel URL in the Render backend environment settings.
+Set `CORS_ORIGINS` on Render to the exact Vercel origin, such as `https://your-app.vercel.app` (comma-separated origins are supported). Do not commit API keys; use the variables in `.env.example` as a template.
+
+### AI pipeline and fallback
+
+`SupportAgent` classifies the message, applies deterministic escalation rules, and generates a DM-safe reply. Groq structured JSON output is requested when available; Anthropic uses the same strict prompt and both responses are validated before use. Invalid responses, unavailable SDKs, and API failures are logged without exposing credentials and fall back to the offline keyword classifier.
+
+### Benchmark note
+
+The published 200-example results are offline heuristic-fallback measurements: 61.50% intent accuracy, 60.10% macro F1, 49.21% escalation F1, and 4.35/5 reply quality. They are not LLM-run accuracy claims. The LLM-as-judge alignment figures are separate evidence from 30 annotated replies.
 
 ---
 
